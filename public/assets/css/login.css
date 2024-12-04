@@ -1,0 +1,53 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to left,rgb(139, 239, 132),WHITE);
+}
+.login{
+    height:280px;
+    width: 300px;
+    background-color: beige;
+    margin:auto ;
+    margin-top: 150px;
+    box-shadow: 2px 2px 2px 2px;
+    border-radius: 5px;
+}
+h2{
+    text-align: center;
+    margin: 30px;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: 20px;
+    
+}
+label{
+    font-size: 15px;
+    margin-left: 10px;
+    padding: 10px;
+}
+.form1{
+    margin-top: 10px;
+}
+input{
+    font-size: 20px;
+    margin-left: 20px;
+    border: none;
+    margin-top: 10px;
+    width: 250px;
+    background: #dddddd;
+}
+button{
+    font-size: 16px;
+    margin-left: 25px;
+    width: 250px;
+    padding: 5px;
+    text-align: center;
+}
+p{
+    margin-left: 10px;
+}
+p a{
+    color: blue;
+    cursor: pointer;
+}

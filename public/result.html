@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Results</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="resultsContainer" class="results-container"></div>
+<script>
+// Sample array of products (replace with your actual product data)
+var products = [
+    { name: "Paracetamol", category: "Medicines", description: "Description of Paracetamol...", price: "$5.99", image: "paracetamol.jpg" },
+    { name: "Aspirin", category: "Medicines", description: "Description of Aspirin...", price: "$3.99", image: "aspirin.jpg" },
+    { name: "Diamond Ring", category: "Jewelry", description: "Description of Diamond Ring...", price: "$999.99", image: "diamond-ring.jpg" },
+    { name: "Gold Necklace", category: "Jewelry", description: "Description of Gold Necklace...", price: "$499.99", image: "gold-necklace.jpg" },
+    // Add more products as needed
+];
+
+// Function to retrieve search query from URL parameter
+function getSearchQuery() {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('q');
+}
+
+// Function to retrieve category from URL parameter
+function getCategory() {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('category');
+}
+
+// Function to perform search and display results
+function performSearch() {
+    var searchQuery = getSearchQuery();
+    var category = getCategory();
+    var resultsContainer = document.getElementById("resultsContainer");
+    resultsContainer.innerHTML = "";
+    var filteredProducts;
+    if (category === "all") {
+        filteredProducts = products.filter(function(product) {
+            return product.name.toLowerCase().includes(searchQuery.toLowerCase());
+        });
+    } else {
+        filteredProducts = products.filter(function(product) {
+            return product.name.toLowerCase().includes(searchQuery.toLowerCase()) && product.category.toLowerCase() === category.toLowerCase();
+        });
+    }
+    filteredProducts.forEach(function(product) {
+        var productElement = document.createElement("div");
+        productElement.classList.add("product");
+        productElement.innerHTML = `
+            <h3>${product.name}</h3>
+            <img src="${product.image}" alt="${product.name}">
+            <p>${product.description}</p>
+            <span>${product.price}</span>
+            <button>Add to Cart</button>
+        `;
+        resultsContainer.appendChild(productElement);
+    });
+}
+
+performSearch();
+</script>
+</body>
+</html>

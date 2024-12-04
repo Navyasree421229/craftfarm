@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="assets/css/product.css">
+    <script src="https://kit.fontawesome.com/c2bfdb7f5b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="logo.png" class="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="home.html">Home</a></li>
+                <li><a class="active" href="product.html">Product</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">My Account</a></li>
+                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="#"><p id="count">0</p></a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="https://www.fashiondwar.com/cdn/shop/files/DSC05525.webp?v=1705515849&width=990" width="100%" id="Mainimg">
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="https://www.fashiondwar.com/cdn/shop/files/9011_1.webp?v=1705515329&width=990" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="https://www.fashiondwar.com/cdn/shop/files/9011_11.webp?v=1705515329&width=990" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="https://www.fashiondwar.com/cdn/shop/files/DSC05576.webp?v=1705406346&width=990" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="https://www.fashiondwar.com/cdn/shop/files/DSC05518.webp?v=1705515285&width=990" width="100%" class="small-img">
+                </div>
+                
+            </div>
+        </div>
+        <div class="single-pro-details">
+            <h6>Skirt/Shirt</h6>
+            <h4 id="name">Women's Short Skirt</h4>
+            <h2 id="price">$20.00</h2>
+            <select id="sizeSelect">
+                <option>Select Size</option>
+                <option>XL</option>
+                <option>XXL</option>
+                <option>Small</option>
+                <option>Large</option>
+            </select>
+            <input type="number" id="quantityInput" value="1" min="1">
+            <button class="normal" id="addToCartBtn">Add to Cart</button>
+            <h4>Product Details</h4>
+            <span>Care Instructions: Machine Wash <br><br>Fit Type: Slim Fit <br><br>Material: 100% Pure Cottton, pre washed for a comfy soft finish and rich look and guaranteed 0% shrinkage post washing. These Dennis Lingo Shirts are built on the pillars of quality, reliability and durability to offer you men's lifestyle essentials that never go out of fashion<br><br> Style: XS · Collared · Long Sleeve · Basil Green · Regular</span>
+        </div>
+    </section>
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up for Newsletters</h4>
+            <p>Got E-mail updates about our latest shop and <span>Special Offer</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+    <div class="row6">
+        <div class="col4">
+            <p>Join Our Mailing List</p>    
+            <h4>First Name</h4>
+            <input type="text" required> 
+            <h4>Last Name</h4>
+            <input type="text" required>
+            <h4>Email Address</h4>
+            <input type="email" required><br>
+            <button class="join">Join</button>
+            <button class="reset">Reset</button>
+        </div> 
+        <div class="col5">
+            <p>Buy With Confidence</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc89rO8FiWiFU3lafVLKqZjbFDJrBqjQEXdQ&usqp=CAU">
+            <h1><i class="fa-solid fa-lock"></i></h1>
+            <h6>Safe and Secure Online Payment</h6>
+        </div> 
+        <div class="col6">
+            <p>Information</p>
+            <ul>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Shipping & Delivering & Return Policy</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Data Protection Policy</a></li>
+            </ul>
+            <p>Keep Updated</p>
+            <div class="row7">
+                <h2><i class="fa-brands fa-facebook"></i></h2>
+                <h3><i class="fa-brands fa-square-twitter"></i></h3>
+                <h4><i class="fa-brands fa-linkedin"></i></h4>
+            </div>
+        </div>      
+    </div>
+    <div class="row8">
+        <p><i class="fa-regular fa-copyright"></i> 2024 | <b style="color: rgb(62, 243, 83);">CraftFarm</b></p>
+        <h5>Privacy Policy | Shipping Policy | Cancellation Policy | Terms & Conditons | How to use</h5>
+    </div>
+    <script>
+        var mainimg = document.getElementById("Mainimg");
+        var smallimg = document.getElementsByClassName("small-img");
+        var price = 20; // Initial price
+
+        smallimg[0].onclick = function(){
+            mainimg.src = smallimg[0].src;
+        }
+        smallimg[1].onclick = function(){
+            mainimg.src = smallimg[1].src;
+        }
+        smallimg[2].onclick = function(){
+            mainimg.src = smallimg[2].src;
+        }
+        smallimg[3].onclick = function(){
+            mainimg.src = smallimg[3].src;
+        }
+
+        document.getElementById("addToCartBtn").addEventListener("click", addToCart);
+
+        function addToCart(){
+            var selectedSize = document.getElementById("sizeSelect").value;
+            var quantity = document.getElementById("quantityInput").value;
+            const product = {
+                id: 0,
+                image: 'https://www.fashiondwar.com/cdn/shop/files/DSC05525.webp?v=1705515849&width=990',
+                title: "Women's Short Skirt",
+                price: price,
+                size: selectedSize,
+                quantity: quantity
+            };
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(product);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        function updateCartCount(){
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            document.getElementById("count").innerHTML = cart.length;
+        }
+        updateCartCount();
+
+        // Update total price when quantity changes
+        document.getElementById("quantityInput").addEventListener("change", function(){
+            price = 20 * this.value;
+            document.getElementById("price").innerHTML = "$" + price.toFixed(2);
+        });
+    </script>
+</body>
+</html>

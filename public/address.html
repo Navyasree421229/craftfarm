@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>address page</title>
+        <link rel="stylesheet" href="assets/css/address.css">
+    </head>
+    <body>
+        <div class="address" id="address">
+            <h2>Address Details</h2>
+            <form id="addressForm" action="address.php" method="POST">
+                <div class="form3">
+                    <label>Flat,House no.,Building,Company,Apartment</label><br>
+                    <input type="text" id="Flat" required>
+                </div>
+                <div class="form3">
+                    <label>Area,Street,Sector,Village</label><br>
+                    <input type="text" id="Area" required>
+                </div>
+                <div class="form3">
+                    <label>Landmark</label><br>
+                    <input type="text" id="Landmark">
+                </div>
+                <div class="form3">
+                    <label>Pincode</label><br>
+                    <input type="number" id="pincode" required>
+                </div>
+                <div class="form3">
+                    <label>Town/City</label><br>
+                    <input type="text" id="Town" required>
+                </div>
+                <div class="form3">
+                    <label>State</label><br>
+                    <select>
+                        <option>Select</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Tamilnadu">Tamilnadu</option>
+                        <option value="Kerala">Kerala</option>
+                    </select>
+                </div>
+                <div class="form3">
+                    <button type="button" id="submitBtn" onclick="Submit()" disabled>Submit</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            function Submit(){
+                window.location.href = 'login.html'; 
+            }
+            const form = document.getElementById('addressForm');
+            const submitBtn = document.getElementById('submitBtn');
+    
+            form.addEventListener('input', function() {
+                if (form.checkValidity()) {
+                    submitBtn.disabled = false;
+                } else {
+                    submitBtn.disabled = true;
+                }
+            });
+        </script>
+    </body>
+</html>
